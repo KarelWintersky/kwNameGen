@@ -9,14 +9,23 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="scripts/_engine.js"></script>
     <!-- Languages -->
-    <script type="text/javascript" src="scripts/english.js"></script>
-    <script type="text/javascript" src="scripts/bulgarian.js"></script>
+    <script type="text/javascript" src="scripts/dutch.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var dictionary = dutch;
+
+            // set title
+            $("#result legend").html(   )
+
+            // get gender
+            var gender = "male";
+
+
+
+
             $("#actor-generate-name").on('click', function(){
-                let dictionary = bulgarian;
-                let gender = "male";
+
 
                 let name = dictionary.getRandomName( gender );
                 let output = dictionary.printName( name );
@@ -24,13 +33,17 @@
                 $("#result").html( output );
             });
         });
+
+
     </script>
 </head>
 <body>
 
 <button id="actor-generate-name">New name</button>
 
-<fieldset id="result"></fieldset>
+<fieldset id="result">
+    <legend></legend>
+</fieldset>
 
 </body>
 </html>
