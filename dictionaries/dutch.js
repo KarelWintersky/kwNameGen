@@ -1,8 +1,6 @@
 var dutch = {
     settings: {
-        translatable    : 1,
         max_names_count : 3,
-        title           : "Генератор подбора нидерландских, голландских, бельгийских имен и фамилий"
     },
 
     name_m: [

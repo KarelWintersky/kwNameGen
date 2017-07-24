@@ -1,8 +1,6 @@
 var danish = {
     settings: {
-        translatable    : 1,
         max_names_count : 3,
-        title           : "Генератор подбора датских имен и фамилий"
     },
 
     name_m: [

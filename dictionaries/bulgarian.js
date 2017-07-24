@@ -1,8 +1,6 @@
 var bulgarian = {
     config : {
-        translatable    : 0,
         max_names_count : 1,
-        title           : "Генератор подбора болгарских имен и фамилий"
     },
 
     name_m : [

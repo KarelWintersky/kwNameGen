@@ -1,8 +1,6 @@
 var czech = {
     config : {
-        translatable    : 0,
         max_names_count : 1,
-        title           : "Генератор подбора чешских имен и фамилий"
     },
 
     name_m : [

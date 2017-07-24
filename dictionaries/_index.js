@@ -26,5 +26,13 @@ var languages = [
     {
         'id'    :   'en_scottish',
         'title' :   'Англо-шотландские имена'
+    },
+    {
+        'id'    :   'finnish',
+        'title' :   'Финские имена'
+    },
+    {
+        'id'    :   'french',
+        'title' :   'Французские имена'
     }
 ];

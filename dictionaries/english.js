@@ -1,8 +1,6 @@
 var english = {
     settings: {
-        translatable    : 1,
         max_names_count : 3,
-        title           : "Генератор подбора английских имен и фамилий<br>(включая англо-ирландские и англо-шотландские)"
     },
 
     name_m: [

@@ -1,6 +1,5 @@
 var en_irish = {
     settings: {
-        translatable    : 1,
         max_names_count : 2,
     },
 
