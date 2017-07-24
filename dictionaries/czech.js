@@ -386,7 +386,7 @@ var czech = {
 
         let result = '';
         let original = '';
-        let transtalted = '';
+        let translated = '';
 
         var src_name;
         var src_cognomen;
@@ -404,16 +404,16 @@ var czech = {
         // генерируем имя
         result = engine.getRndNameParts( src_name );
         original    += result[0] + ' ';
-        transtalted += result[1] + ' ';
+        translated += result[1] + ' ';
 
         // генерируем фамилию
         result = engine.getRndNameParts( src_cognomen );
         original    += result[0];
-        transtalted += result[1];
+        translated += result[1];
 
         return {
             'original'  :   original,
-            'translated':   transtalted
+            'translated':   translated
         };
     },
 

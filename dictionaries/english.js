@@ -1272,7 +1272,7 @@ var english = {
         let result = '';
         let rnd = 0;
         let original = '';
-        let transtalted = '';
+        let translated = '';
 
         var name_source;
 
@@ -1288,17 +1288,17 @@ var english = {
         result = engine.getRndNameParts(name_source);
 
         original += result[0] + ' ';
-        transtalted += result[1] + ' ';
+        translated += result[1] + ' ';
 
         // генерируем фамилию
         result = engine.getRndNameParts(this.cognomen);
 
         original += result[0];
-        transtalted += result[1];
+        translated += result[1];
 
         return {
             'original': original,
-            'translated': transtalted
+            'translated': translated
         };
     },
 

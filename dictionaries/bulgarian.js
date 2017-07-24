@@ -21,7 +21,7 @@ var bulgarian = {
 
         let result = '';
         let original = '';
-        let transtalted = '';
+        let translated = '';
 
         var src_name;
         var src_cognomen;
@@ -46,7 +46,7 @@ var bulgarian = {
 
         return {
             'original'  :   original,
-            'translated':   transtalted
+            'translated':   translated
         };
     },
 
