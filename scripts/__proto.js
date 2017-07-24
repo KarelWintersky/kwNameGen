@@ -3,9 +3,9 @@ var ___ = {
         translatable: 0
     },
 
-    malename : [],
-    femalename : [],
-    lastname : [],
+    name_m : [],
+    name_f : [],
+    cognomen : [],
 
 
     getRandomName : function(gender){
@@ -19,10 +19,10 @@ var ___ = {
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
-            name_source = this.malename;
+            name_source = this.name_m;
         }
         if (gender == "female") {
-            name_source = this.femalename;
+            name_source = this.name_f;
         }
 
         // генерируем имя
@@ -32,7 +32,7 @@ var ___ = {
         transtalted += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts( this.lastname );
+        result = engine.getRndNameParts( this.cognomen );
 
         original    += result[0];
         transtalted += result[1];
@@ -42,4 +42,7 @@ var ___ = {
             'translated':   transtalted
         };
     },
+    printName: function(string) {
+        return out = string.original;
+    }
 };

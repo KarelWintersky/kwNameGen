@@ -1,9 +1,10 @@
 var english = {
-    settings : {
-        translatable: 1
+    settings: {
+        translatable    : 1,
+        max_names_count : 3
     },
 
-    name_m : [
+    name_m: [
         "Abel | Эйбл",
         "Abner | Эбнер",
         "Abraham | Абрахам",
@@ -365,7 +366,7 @@ var english = {
         "Willis | Уиллис",
         "Winfred | Уинфрид"
     ],
-    name_f : [
+    name_f: [
         "Abigail | Эбигейл",
         "Abigayle | Эбигейл",
         "Ada | Эйда",
@@ -863,7 +864,7 @@ var english = {
         "Winifred | Уинифред",
         "Zoe | Зои"
     ],
-    cognomen : [
+    cognomen: [
         "Adams | Адамс",
         "Alexander | Александер",
         "Allen | Аллен",
@@ -1268,7 +1269,7 @@ var english = {
     ],
 
 
-    getRandomName : function(gender){
+    getRandomName: function (gender) {
         let result = '';
         let rnd = 0;
         let original = '';
@@ -1285,22 +1286,26 @@ var english = {
         }
 
         // генерируем имя
-        result = engine.getRndNameParts( name_source );
+        result = engine.getRndNameParts(name_source);
 
-        original    += result[0] + ' ';
+        original += result[0] + ' ';
         transtalted += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts( this.cognomen );
+        result = engine.getRndNameParts(this.cognomen);
 
-        original    += result[0];
+        original += result[0];
         transtalted += result[1];
 
         return {
-            'original'  :   original,
-            'translated':   transtalted
+            'original': original,
+            'translated': transtalted
         };
     },
+
+    printName: function (string) {
+        return out = string.translated + ' ( ' + string.original + ' ) '
+    }
 };
 
 

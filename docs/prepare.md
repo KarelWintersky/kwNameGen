@@ -1,7 +1,7 @@
 JS Console:
 
 ```
-var listarray = lastname; // подставить сюда нужный массив имён
+var listarray = lastname;
 
 var let = '';
 listarray.sort();

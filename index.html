@@ -7,13 +7,21 @@
 
     </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="english.js"></script>
+    <script type="text/javascript" src="scripts/_engine.js"></script>
+    <!-- Languages -->
+    <script type="text/javascript" src="scripts/english.js"></script>
+    <script type="text/javascript" src="scripts/bulgarian.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#actor-generate-name").on('click', function(){
-                let name = english.getRandomName("female");
+                let dictionary = bulgarian;
+                let gender = "male";
 
-                $("#result").html( name.translated + ' ( ' + name.original + ' ) ' );
+                let name = dictionary.getRandomName( gender );
+                let output = dictionary.printName( name );
+
+                $("#result").html( output );
             });
         });
     </script>
