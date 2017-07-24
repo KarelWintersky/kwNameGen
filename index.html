@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="english.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#actor-generate-name").on('click', function(){
+                let name = english.getRandomName("female");
+
+                $("#result").html( name.translated + ' ( ' + name.original + ' ) ' );
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button id="actor-generate-name">New name</button>
+
+<fieldset id="result"></fieldset>
+
+</body>
+</html>
