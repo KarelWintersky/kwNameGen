@@ -8,42 +8,80 @@
     </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="scripts/_engine.js"></script>
+    <script type="text/javascript" src="scripts/_languages.js"></script>
     <!-- Languages -->
+    <script type="text/javascript" src="scripts/bulgarian.js"></script>
+    <script type="text/javascript" src="scripts/czech.js"></script>
+    <script type="text/javascript" src="scripts/danish.js"></script>
     <script type="text/javascript" src="scripts/dutch.js"></script>
+    <script type="text/javascript" src="scripts/english.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var dictionary = dutch;
+            var dictionary;
+
+            // gender handler
+            var gender = "male";
+            $("#select-gender").on('change', function(){
+                gender = $(this).val();
+            });
+
+            // set languages selector
+            $.each(languages, function(index, resource) {
+                $("#select-language").append( $('<option>', {
+                    value : index,
+                    text  : resource.title
+                }) );
+            });
+
+            // bind languages selector
+            $("#select-language").on('change', function(){
+                let dict = $(this).val();
+
+                let actor_generate_name__state = (dict == "null") ? true : false;
+                $("#actor-generate-name").prop('disabled', actor_generate_name__state);
+
+                dictionary = null;
+                dictionary = eval(dict);
+
+                $("#dictionary").html( dict  );
+
+                console.log('Selected ' + dict + ' disctionary.');
+            });
 
             // set title
-            $("#result legend").html(   )
-
-            // get gender
-            var gender = "male";
 
 
-
-
+            // bindings
             $("#actor-generate-name").on('click', function(){
-
-
                 let name = dictionary.getRandomName( gender );
                 let output = dictionary.printName( name );
 
-                $("#result").html( output );
+                $("#result").prepend( "<br>" + output );
             });
         });
-
-
     </script>
+    <style type="text/css">
+        #result { border: 0; }
+    </style>
 </head>
 <body>
+Language: <select id="select-language"><option value="null">Выбери язык</option></select>
+<span style="width: 3rem; display: inline-block"></span>
+Gender:
+<select id="select-gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+<span style="width: 2rem; display: inline-block">&nbsp;</span>
+<button id="actor-generate-name" disabled>Generate name</button>
 
-<button id="actor-generate-name">New name</button>
-
-<fieldset id="result">
-    <legend></legend>
+<fieldset>
+    <legend id="dictionary"></legend>
+    <fieldset id="result">
+    </fieldset>
 </fieldset>
+
 
 </body>
 </html>

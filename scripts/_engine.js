@@ -7,7 +7,6 @@ var engine = {
     },
 
     // methods
-
     getRndElement : function(array) {
         let rnd = Math.floor( Math.random() * array.length );
         return array[ rnd ];
