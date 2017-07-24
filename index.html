@@ -15,6 +15,8 @@
     <script type="text/javascript" src="scripts/danish.js"></script>
     <script type="text/javascript" src="scripts/dutch.js"></script>
     <script type="text/javascript" src="scripts/english.js"></script>
+    <script type="text/javascript" src="scripts/en_irish.js"></script>
+    <script type="text/javascript" src="scripts/en_scottish.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -27,37 +29,37 @@
             });
 
             // set languages selector
-            $.each(languages, function(index, resource) {
+            languages.sort( function(a, b){ return a.title > b.title; });
+            languages.forEach(function(element, index, array){
                 $("#select-language").append( $('<option>', {
-                    value : index,
-                    text  : resource.title
-                }) );
+                    value : element.id,
+                    text  : element.title,
+
+                }).data('dict', element.id) );
             });
 
             // bind languages selector
             $("#select-language").on('change', function(){
                 let dict = $(this).val();
+                let text = $(this).find('option:selected').text();
 
                 let actor_generate_name__state = (dict == "null") ? true : false;
                 $("#actor-generate-name").prop('disabled', actor_generate_name__state);
-
+                $("#dictionary").html( !actor_generate_name__state ? text : '&nbsp;' );
                 dictionary = null;
                 dictionary = eval(dict);
-
-                $("#dictionary").html( dict  );
-
-                console.log('Selected ' + dict + ' disctionary.');
             });
-
-            // set title
-
 
             // bindings
             $("#actor-generate-name").on('click', function(){
                 let name = dictionary.getRandomName( gender );
                 let output = dictionary.printName( name );
 
-                $("#result").prepend( "<br>" + output );
+                $("#result").prepend( output + "<br>");
+            });
+
+            $("#actor-result-reset").on('click', function(){
+                $("#result").html('');
             });
         });
     </script>
@@ -66,22 +68,25 @@
     </style>
 </head>
 <body>
-Language: <select id="select-language"><option value="null">Выбери язык</option></select>
+Language: <select id="select-language"><option value="null"> >> Выбери язык << </option></select>
 <span style="width: 3rem; display: inline-block"></span>
-Gender:
-<select id="select-gender">
+
+Gender:<select id="select-gender">
     <option value="male">Male</option>
     <option value="female">Female</option>
 </select>
 <span style="width: 2rem; display: inline-block">&nbsp;</span>
+
 <button id="actor-generate-name" disabled>Generate name</button>
+<span style="width: 1rem; display: inline-block">&nbsp;</span>
+<button id="actor-result-reset">Reset</button>
+
+<!-- -->
 
 <fieldset>
-    <legend id="dictionary"></legend>
-    <fieldset id="result">
-    </fieldset>
+    <legend id="dictionary">&nbsp;</legend>
+    <fieldset id="result"></fieldset>
 </fieldset>
-
 
 </body>
 </html>
