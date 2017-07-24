@@ -1,4 +1,4 @@
-var icelandic = {
+var polish  = {
     settings: {
         max_names_count : 2,
     },
