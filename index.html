@@ -8,21 +8,7 @@
     </style>
     <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="scripts/engine.js"></script>
-    <script type="text/javascript" src="dictionaries/_index.js"></script>
-    <!-- Languages -->
-    <script type="text/javascript" src="dictionaries/bulgarian.js"></script>
-    <script type="text/javascript" src="dictionaries/czech.js"></script>
-    <script type="text/javascript" src="dictionaries/danish.js"></script>
-    <script type="text/javascript" src="dictionaries/dutch.js"></script>
-    <script type="text/javascript" src="dictionaries/en_irish.js"></script>
-    <script type="text/javascript" src="dictionaries/en_scottish.js"></script>
-    <script type="text/javascript" src="dictionaries/english.js"></script>
-    <script type="text/javascript" src="dictionaries/finnish.js"></script>
-    <script type="text/javascript" src="dictionaries/french.js"></script>
-    <script type="text/javascript" src="dictionaries/german.js"></script>
-    <script type="text/javascript" src="dictionaries/hungarian.js"></script>
-    <script type="text/javascript" src="dictionaries/icelandic.js"></script>
-    <script type="text/javascript" src="dictionaries/italian.js"></script>
+    <script type="text/javascript" src="scripts/dictionaries.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -34,21 +20,19 @@
                 gender = $(this).val();
             });
 
-            // set languages selector
-            languages.sort( function(a, b){ return a.title > b.title; });
-            languages.forEach(function(element, index, array){
+            // generate Languages Optionslist
+            languages = sortAssocObject(languages, function(a, b) { return (a[1] < b[1] ? -1 : (a[1] > b[1] ? 1 : 0)); });
+            Object.keys(languages).map(function(objKey, index) {
                 $("#select-language").append( $('<option>', {
-                    value : element.id,
-                    text  : element.title,
-
-                }).data('dict', element.id) );
+                    value : objKey,
+                    text  : languages[objKey],
+                }) );
             });
 
             // bind languages selector
             $("#select-language").on('change', function(){
                 let dict = $(this).val();
                 let text = $(this).find('option:selected').text();
-
                 let actor_generate_name__state = (dict == "null") ? true : false;
                 $("#actor-generate-name").prop('disabled', actor_generate_name__state);
                 $("#dictionary").html( !actor_generate_name__state ? text : '&nbsp;' );

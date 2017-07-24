@@ -26,3 +26,18 @@ var engine = {
 
 
 };
+
+function sortAssocObject(list , callable) {
+    let sortable = [];
+    for (let key in list) {
+        sortable.push([key, list[key]]);
+    }
+    sortable.sort( callable );
+
+    let orderedList = {};
+    for (let i = 0; i < sortable.length; i++) {
+        orderedList[sortable[i][0]] = sortable[i][1];
+    }
+
+    return orderedList;
+}

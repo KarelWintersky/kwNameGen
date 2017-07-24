@@ -4,7 +4,7 @@ var portugalian = {
         max_names_count : 3,
     },
 
-    name_m_port: [
+    name_m: [
         "Adriano | Адриану",
         "Afonso | Афонсу",
         "Alexandre | Алешандри",
@@ -127,7 +127,7 @@ var portugalian = {
         "Vítor Gabriel | Витор Габриэл",
         "Ângelo | Анжелу",
     ],
-    name_f_port: [
+    name_f: [
         "Adelina | Аделина",
         "Adriana | Адриана",
         "Agustina | Агуштина",

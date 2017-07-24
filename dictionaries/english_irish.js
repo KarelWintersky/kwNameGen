@@ -1,4 +1,4 @@
-var en_irish = {
+var english_irish = {
     settings: {
         max_names_count : 2,
     },
