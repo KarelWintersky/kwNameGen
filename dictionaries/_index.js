@@ -34,5 +34,22 @@ var languages = [
     {
         'id'    :   'french',
         'title' :   'Французские имена'
-    }
+    },
+    {
+        'id'    :   'german',
+        'title' :   'Немецкие имена'
+    },
+    {
+        'id'    :   'hungarian',
+        'title' :   'Венгерские имена'
+    },
+    {
+        'id'    :   'icelandic',
+        'title' :   'Исландские имена'
+    },
+    {
+        'id'    :   'italian',
+        'title' :   'Итальянские имена'
+    },
+
 ];
