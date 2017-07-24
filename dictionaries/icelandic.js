@@ -1,6 +1,16 @@
 var icelandic = {
-    settings: {
-        max_names_count : 2,
+    config : {
+        title: 'Датские имена',
+        names: {
+            min : 1,
+            max : 2,
+            list : ['Имя', 'Второе имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия (патроним)']
+        }
     },
 
     name_m: [
@@ -150,7 +160,7 @@ var icelandic = {
         "Þórdís | Тоурдис",
         "Þórunn | Тоурюнн",
     ],
-    cognomen_m: [
+    lastname_m: [
         "Antonsson | Антонссон",
         "Atlason | Атласон",
         "Birgisson | Биргиссон",
@@ -200,7 +210,7 @@ var icelandic = {
         "Þorsteinsson | Торстейнссон",
         "Þorvaldsson | Торвальдссон",
     ],
-    cognomen_f: [
+    lastname_f: [
         "Antonsdóttir | Антонсдоуттир",
         "Atladóttir | Атладоуттир",
         "Birgisdóttir | Биргисдоуттир",
@@ -264,11 +274,11 @@ var icelandic = {
         // установим сообразно гендеру
         if (gender == "male") {
             src_name = this.name_m;
-            src_cognomen = this.cognomen_m;
+            src_cognomen = this.lastname_m;
         }
         if (gender == "female") {
             src_name = this.name_f;
-            src_cognomen = this.cognomen_f;
+            src_cognomen = this.lastname_f;
         }
 
         // генерируем имя
@@ -291,6 +301,3 @@ var icelandic = {
         return out = string.translated + ' ( ' + string.original + ' ) '
     }
 };
-
-
-

@@ -1,6 +1,16 @@
 var dutch = {
-    settings: {
-        max_names_count : 3,
+    config : {
+        title: 'Датские имена',
+        names: {
+            min : 1,
+            max : 3,
+            list : ['Имя', 'Второе имя', 'Третье имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия']
+        }
     },
 
     name_m: [
@@ -250,7 +260,7 @@ var dutch = {
         "Veerle | Верле",
         "Vera | Вера",
     ],
-    cognomen: [
+    lastname_m: [
         "'t Hart | 'т Харт",
         "Aalderink | Алдеринк",
         "Abbink | Аббинк",
@@ -297,7 +307,7 @@ var dutch = {
         "Koning | Конинг",
         "Koster | Костер",
         "Kuiper | Кёйпер",
-        "Kuipers | Кёйперс  ",
+        "Kuipers | Кёйперс",
         "Lambrechts | Ламбрехтс",
         "Lemmens | Лемменс",
         "Lenaerts | Ленартс",
@@ -362,18 +372,18 @@ var dutch = {
         "de Veen | де Вен",
         "de Veer | де Вер",
         "de Vos | де Вос",
-        "de Vries | де Врис  ",
+        "de Vries | де Врис",
         "de Wilde | де Вилде",
         "de Winter | де Винтер",
         "de Wit | де Вит",
         "de clercq | де Клерк",
         "ten Wolde | тен Волде",
         "ter Linde | тер Линде",
-        "van Beek | ван Бек  ",
+        "van Beek | ван Бек",
         "van Dam | ван Дам",
         "van Dijk | ван Дейк",
         "van Dongen | ван Донген",
-        "van Doorn | ван Дорн  ",
+        "van Doorn | ван Дорн",
         "van Loon | ван Лон",
         "van Veen | ван Вен",
         "van Wijk | ван Вейк",
@@ -387,7 +397,7 @@ var dutch = {
         "van den Broek | ван ден Брук",
         "van den Pol | ван ден Пол",
         "van den Velde | ван ден Велде",
-        "van der Berg | ван дер Берг  ",
+        "van der Berg | ван дер Берг",
         "van der Heijden | ван дер Хейден",
         "van der Horst | ван дер Хорст",
         "van der Laan | ван дер Лан",
@@ -401,7 +411,7 @@ var dutch = {
         "van der Woude | ван дер Вауде",
         "van der Zee | ван дер Зе",
     ],
-    cognomen_f : [
+    lastname_f : [
         "Aalderink | Алдеринк",
         "Abbink | Аббинк",
         "Adam | Адам",
@@ -426,7 +436,7 @@ var dutch = {
         "Cools | Колс",
         "Coppens | Коппенс",
         "De Backer | Де Баккер",
-        "De Boer | Де Бур  ",
+        "De Boer | Де Бур",
         "De Clercq | Де Клерк",
         "De Coninck | Де Конинк",
         "De Croon | Де Крон",
@@ -517,7 +527,7 @@ var dutch = {
         "Van Den Broek | Ван Ден Брук",
         "Van Den Pol | Ван Ден Пол",
         "Van Den Velde | Ван Ден Велде",
-        "Van Der Berg | Ван Дер Берг  ",
+        "Van Der Berg | Ван Дер Берг",
         "Van Der Heijden | Ван Дер Хейден",
         "Van Der Horst | Ван Дер Хорст",
         "Van Der Laan | Ван Дер Лан",
@@ -560,24 +570,27 @@ var dutch = {
         let original = '';
         let translated = '';
 
-        var name_source;
+        let src_name;
+        let src_lastname;
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
-            name_source = this.name_m;
+            src_name = this.name_m;
+            src_lastname = this.lastname_m;
         }
         if (gender == "female") {
-            name_source = this.name_f;
+            src_name = this.name_f;
+            src_lastname = this.lastname_f;
         }
 
         // генерируем имя
-        result = engine.getRndNameParts(name_source);
+        result = engine.getRndNameParts(src_name);
 
         original += result[0] + ' ';
         translated += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts(this.cognomen);
+        result = engine.getRndNameParts(src_lastname);
 
         original += result[0];
         translated += result[1];

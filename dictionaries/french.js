@@ -1,6 +1,16 @@
 var french = {
-    settings: {
-        max_names_count : 3,
+    config : {
+        title: 'Французские имена',
+        names: {
+            min : 1,
+            max : 3,
+            list : ['Имя', 'Второе имя', 'Третье имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия']
+        }
     },
 
     name_m: [
@@ -392,7 +402,7 @@ var french = {
         "Éloïse | Элоиз",
         "Émilie | Эмили",
     ],
-    cognomen: [
+    lastname: [
         "Alain | Ален",
         "Alarie | Алари",
         "Albert | Альбер",
@@ -763,24 +773,24 @@ var french = {
         let original = '';
         let translated = '';
 
-        var name_source;
+        var src_name;
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
-            name_source = this.name_m;
+            src_name = this.name_m;
         }
         if (gender == "female") {
-            name_source = this.name_f;
+            src_name = this.name_f;
         }
 
         // генерируем имя
-        result = engine.getRndNameParts(name_source);
+        result = engine.getRndNameParts(src_name);
 
         original += result[0] + ' ';
         translated += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts(this.cognomen);
+        result = engine.getRndNameParts(this.lastname);
 
         original += result[0];
         translated += result[1];

@@ -1,6 +1,16 @@
 var english_irish = {
-    settings: {
-        max_names_count : 2,
+    config : {
+        title: 'Англо-ирландские имена',
+        names: {
+            min : 1,
+            max : 2,
+            list : ['Имя', 'Второе имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия']
+        }
     },
 
     name_m: [

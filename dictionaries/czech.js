@@ -1,6 +1,16 @@
 var czech = {
     config : {
-        max_names_count : 1,
+        title: 'Чешские имена',
+        names: {
+            min : 1,
+            max : 2,
+            list : ['Имя', 'Второе имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия']
+        }
     },
 
     name_m : [
@@ -193,7 +203,7 @@ var czech = {
         "Štěpánka | Штепанка",
         "Žaneta | Жанета",
     ],
-    cognomen_m : [
+    lastname_m : [
         "Bartoš | Бартош",
         "Bařtipán | Барштипан",
         "Bednář | Беднарж",
@@ -294,7 +304,7 @@ var czech = {
         "Štěpánek | Штепанек",
         "Švec | Швец",
     ],
-    cognomen_f : [
+    lastname_f : [
         "Bartošová | Бартошова",
         "Bednářová | Беднаржова",
         "Benešová | Бенешова",
@@ -388,17 +398,17 @@ var czech = {
         let original = '';
         let translated = '';
 
-        var src_name;
-        var src_cognomen;
+        let src_name;
+        let src_lastname;
 
         // установим сообразно гендеру
         if (gender == "male") {
             src_name = this.name_m;
-            src_cognomen = this.cognomen_m;
+            src_lastname = this.lastname_m;
         }
         if (gender == "female") {
             src_name = this.name_f;
-            src_cognomen = this.cognomen_f;
+            src_lastname = this.lastname_f;
         }
 
         // генерируем имя
@@ -407,7 +417,7 @@ var czech = {
         translated += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts( src_cognomen );
+        result = engine.getRndNameParts( src_lastname );
         original    += result[0];
         translated += result[1];
 

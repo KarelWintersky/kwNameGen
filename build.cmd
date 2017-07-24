@@ -1,8 +1,32 @@
 @echo off
+@rem `npm install uglify-es -g ` REQUIRED for build
+@rem see https://github.com/mishoo/UglifyJS2/tree/harmony
+
+echo ----
+echo Creating 'dictionaries.js'
+echo ----
+
 echo ; > ./scripts/dictionaries.js
 for /F %%i in ('forfiles /p .\dictionaries /m *.js') do (
   echo Adding file %%i
   @type ".\dictionaries\%%i" >> ./scripts/dictionaries.js
 )
+echo ----
+echo Dictionary created
+echo ----
+echo Compressing dictionary
+echo ----
 
-@rem uglifyjs scripts/dictionaries.js > scripts/dictionaries.min.js
+uglifyjs ./scripts/dictionaries.js -o  ./scripts/dictionaries.min.js
+
+echo ----
+echo Dictionary compressed
+echo ----
+echo Erasing temp file
+echo ----
+
+del /Q scripts/dictionaries.js
+
+echo ----
+echo Erased.
+

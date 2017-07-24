@@ -1,7 +1,17 @@
 // ГЕНЕРАТОР ПОДБОРА РУМЫНСКИХ И МОЛДАВСКИХ ИМЕН И ФАМИЛИЙ
 var romanian = {
     config : {
-        max_names_count : 3,
+        title: 'Румынские и молдавские имена',
+        names: {
+            min : 1,
+            max : 1,
+            list : ['Имя']
+        },
+        lastnames: {
+            min : 1,
+            max : 1,
+            list: ['Фамилия']
+        }
     },
 
     name_m : [
@@ -209,7 +219,7 @@ var romanian = {
         "Victoria | Виктория",
         "Violeta | Виолета",
     ],
-    cognomen : [
+    lastname : [
         "Adamescu | Адамеску",
         "Albu | Албу",
         "Albulescu | Албулеску",
@@ -306,7 +316,7 @@ var romanian = {
         let translated = '';
 
         var src_name;
-        var src_cognomen;
+        var src_lastname;
 
         // установим сообразно гендеру
         if (gender == "male") {
@@ -315,14 +325,14 @@ var romanian = {
         if (gender == "female") {
             src_name = this.name_f;
         }
-        src_cognomen = this.cognomen;
+        src_lastname = this.lastname;
 
         // генерируем имя
         result = engine.getRndNameParts( src_name );
         original    += result[0] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts( src_cognomen );
+        result = engine.getRndNameParts( src_lastname );
         original    += result[0];
 
         return {
