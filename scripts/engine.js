@@ -1,4 +1,13 @@
 var engine = {
+    settings : {},
+
+    // constructor
+    init : function(settings) {
+        this.settings = settings;
+    },
+
+    // methods
+
     getRndElement : function(array) {
         let rnd = Math.floor( Math.random() * array.length );
         return array[ rnd ];
@@ -10,4 +19,6 @@ var engine = {
         let rnd = Math.floor( Math.random() * array.length );
         return (array[rnd]).split('|');
     }
+
+
 };

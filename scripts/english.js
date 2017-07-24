@@ -1,5 +1,9 @@
 var english = {
-    malename : [
+    settings : {
+        translatable: 1
+    },
+
+    name_m : [
         "Abel | Эйбл",
         "Abner | Эбнер",
         "Abraham | Абрахам",
@@ -361,7 +365,7 @@ var english = {
         "Willis | Уиллис",
         "Winfred | Уинфрид"
     ],
-    femalename : [
+    name_f : [
         "Abigail | Эбигейл",
         "Abigayle | Эбигейл",
         "Ada | Эйда",
@@ -859,7 +863,7 @@ var english = {
         "Winifred | Уинифред",
         "Zoe | Зои"
     ],
-    lastname : [
+    cognomen : [
         "Adams | Адамс",
         "Alexander | Александер",
         "Allen | Аллен",
@@ -1274,10 +1278,10 @@ var english = {
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
-            name_source = this.malename;
+            name_source = this.name_m;
         }
         if (gender == "female") {
-            name_source = this.femalename;
+            name_source = this.name_f;
         }
 
         // генерируем имя
@@ -1287,7 +1291,7 @@ var english = {
         transtalted += result[1] + ' ';
 
         // генерируем фамилию
-        result = engine.getRndNameParts( this.lastname );
+        result = engine.getRndNameParts( this.cognomen );
 
         original    += result[0];
         transtalted += result[1];
