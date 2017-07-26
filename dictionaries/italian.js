@@ -1,6 +1,7 @@
 var italian = {
     config : {
         title: 'Итальянские имена',
+        iso_code: 'it',
         names: {
             min : 1,
             max : 3,

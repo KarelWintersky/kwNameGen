@@ -1,6 +1,7 @@
 var bulgarian = {
     config : {
         title: 'Болгарские имена',
+        iso_code: 'bg',
         names: {
             min : 1,
             max : 1,

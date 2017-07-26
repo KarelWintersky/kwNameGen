@@ -2,6 +2,7 @@
 var romanian = {
     config : {
         title: 'Румынские и молдавские имена',
+        iso_code: 'ro',
         names: {
             min : 1,
             max : 1,

@@ -2,6 +2,7 @@
 var portugalian = {
     config : {
         title: 'Португальские имена',
+        iso_code: 'pt',
         names: {
             min : 1,
             max : 2,

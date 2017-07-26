@@ -1,6 +1,7 @@
 var finnish = {
     config : {
         title: 'Финские имена',
+        iso_code: 'fi',
         names: {
             min : 1,
             max : 3,

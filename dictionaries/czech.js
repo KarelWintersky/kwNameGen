@@ -1,6 +1,7 @@
 var czech = {
     config : {
         title: 'Чешские имена',
+        iso_code: 'cz',
         names: {
             min : 1,
             max : 2,

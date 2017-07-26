@@ -1,6 +1,7 @@
 var polish  = {
     config : {
         title: 'Польские имена',
+        iso_code: 'pl',
         names: {
             min : 1,
             max : 2,

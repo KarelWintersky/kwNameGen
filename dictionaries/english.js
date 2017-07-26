@@ -1,6 +1,7 @@
 var english = {
     config : {
         title: 'Английские имена',
+        iso_code: 'gb',
         names: {
             min : 1,
             max : 3,

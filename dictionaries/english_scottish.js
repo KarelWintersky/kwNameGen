@@ -1,6 +1,7 @@
-var en_irish = {
+var english_scottish = {
     config : {
         title: 'Англо-шотландские имена',
+        iso_code: 'gb',
         names: {
             min : 1,
             max : 2,

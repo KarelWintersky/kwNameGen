@@ -1,6 +1,7 @@
 var dutch = {
     config : {
-        title: 'Датские имена',
+        title: 'Нидерландские имена',
+        iso_code: 'nl',
         names: {
             min : 1,
             max : 3,

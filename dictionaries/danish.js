@@ -1,6 +1,7 @@
 var danish = {
     config : {
         title: 'Датские имена',
+        iso_code: 'dk',
         names: {
             min : 1,
             max : 3,

@@ -1,6 +1,7 @@
 var english_irish = {
     config : {
         title: 'Англо-ирландские имена',
+        iso_code: 'ie',
         names: {
             min : 1,
             max : 2,

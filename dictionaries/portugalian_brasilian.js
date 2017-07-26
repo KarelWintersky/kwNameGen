@@ -5,6 +5,7 @@
 var portugalian_brasilian = {
     config : {
         title: 'Португальские (бразильские) имена',
+        iso_code: 'br',
         names: {
             min : 1,
             max : 2,

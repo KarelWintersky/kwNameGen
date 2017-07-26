@@ -1,6 +1,7 @@
 var spain = {
     config : {
         title: 'Испанские имена',
+        iso_code: 'es',
         names: {
             min : 1,
             max : 3,

@@ -1,6 +1,7 @@
 var french = {
     config : {
         title: 'Французские имена',
+        iso_code: 'fr',
         names: {
             min : 1,
             max : 3,

@@ -1,6 +1,7 @@
 var german = {
     config : {
         title: 'Немецкие имена',
+        iso_code: 'de',
         names: {
             min : 1,
             max : 3,

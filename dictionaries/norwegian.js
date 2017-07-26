@@ -1,6 +1,7 @@
 var norwegian = {
     config : {
         title: 'Норвежские имена',
+        iso_code: 'no',
         names: {
             min : 1,
             max : 3,

@@ -1,6 +1,7 @@
 var hungarian = {
     config : {
         title: 'Венгерские имена',
+        iso_code: 'hu',
         names: {
             min : 1,
             max : 2,

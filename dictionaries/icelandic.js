@@ -1,6 +1,7 @@
 var icelandic = {
     config : {
-        title: 'Датские имена',
+        title: 'Исландские имена',
+        iso_code: 'is',
         names: {
             min : 1,
             max : 2,

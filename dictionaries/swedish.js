@@ -1,6 +1,7 @@
 var swedish = {
     config : {
-        title: 'Итальянские имена',
+        title: 'Шведские имена',
+        iso_code: 'se',
         names: {
             min : 1,
             max : 3,

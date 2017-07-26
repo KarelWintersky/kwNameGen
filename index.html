@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Names generator: prototype</title>
-    <style type="text/css">
+    <meta name="author" lang="ru" content="Karel Wintersky" />
+    <meta name="copyright" content="Karel Wintersky">
+    <meta name="description" content="Names generator" />
+    <meta name="document-state" content="Dynamic" />
+    <meta name="generator" content="Handmade" />
+    <meta name="resource-type" content="document" />
+    <meta name="robots" content="none" />
 
-    </style>
+    <link rel="stylesheet" href="scripts/flags.css">
+
     <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="scripts/engine.js"></script>
     <script type="text/javascript" src="scripts/dictionaries.min.js"></script>
 
-    <script type="text/javascript">
+    <script type="text/javascript" id="jq-binds">
         $(document).ready(function () {
             var dictionary;
+            var current_flag_id; // ISO code
 
             // gender handler
             var gender = "male";
@@ -38,6 +46,7 @@
                 $("#dictionary").html( !actor_generate_name__state ? text : '&nbsp;' );
                 dictionary = null;
                 dictionary = eval(dict);
+                current_flag_id = dictionary.config.iso_code;
             });
 
             // bindings
@@ -45,7 +54,7 @@
                 let name = dictionary.getRandomName( gender );
                 let output = dictionary.printName( name );
 
-                $("#result").prepend( output + "<br>");
+                $("#result").prepend( '<span class="flag flag-' + current_flag_id + '">' +   output + "</span><br>");
             });
 
             $("#actor-result-reset").on('click', function(){
@@ -54,7 +63,12 @@
         });
     </script>
     <style type="text/css">
-        #result { border: 0; }
+        #result {
+            border: 0;
+            overflow-y: auto;
+            max-height: 500px;
+            line-height: 150%;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +89,7 @@ Gender:<select id="select-gender">
 
 <fieldset>
     <legend id="dictionary">&nbsp;</legend>
-    <fieldset id="result"></fieldset>
+    <div id="result"></div>
 </fieldset>
 
 </body>
