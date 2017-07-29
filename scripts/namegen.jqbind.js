@@ -46,7 +46,7 @@ $(document).ready(function () {
         let name = dictionary.getRandomName( gender );
         let output = dictionary.printName( name );
 
-        $("#namegen-result").html( '<span class="flag flag-' + current_country_iso_code + '">' + output + '</span><br>' );
+        $("#namegen-result").html( '<span class="flag-before-single flag-' + current_country_iso_code + '">' + output + '</span><br>' );
         $("#namegen-history").prepend('<span class="flag flag-' + current_country_iso_code + '">' + output + '</span><br>');
     });
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Names generator: prototype</title>
+    <meta name="author" lang="ru" content="Karel Wintersky" />
+    <meta name="copyright" content="Karel Wintersky">
+    <meta name="description" content="Names generator" />
+    <meta name="document-state" content="Dynamic" />
+    <meta name="generator" content="Handmade" />
+    <meta name="resource-type" content="document" />
+    <meta name="robots" content="none" />
+
+    <script type="text/javascript" src="assets/jquery.js"></script>
+    <script type="text/javascript" src="assets/namegen.js"></script>
+    <link rel="stylesheet" href="assets/namegen.css" />
+</head>
+<body>
+Language: <select id="select-language">
+    <option value="null"> >> Выбери язык <<</option>
+</select>
+<span class="nbsp-2rem"></span>
+Gender: <select id="select-gender">
+    <option value="male">♂ Male</option>
+    <option value="female">♀ Female</option>
+</select>
+<span class="nbsp-2rem"></span>
+
+<button id="actor-generate-name" disabled>Generate name</button>
+<span class="nbsp-1rem"></span>
+<button id="actor-result-reset">Reset</button>
+<hr/>
+
+<div id="namegen-result">&nbsp;</div>
+
+<div id="namegen-hint"></div>
+<hr/>
+<fieldset id="fieldset-namegen-history">
+    <legend>History</legend>
+    <div id="namegen-history"></div>
+</fieldset>
+
+
+</body>
+</html>

@@ -1,11 +1,16 @@
 #namegen-hint {
-    display: none;;
+    display: none;
+    font-style: italic;
 }
 #namegen-history {
     border: 0;
     overflow-y: auto;
     max-height: 500px;
-    line-height: 175%;
+    /* line-height: 175%; */
+}
+#namegen-result {
+    font-size: xx-large;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 .nbsp-1rem {
     width: 1rem;

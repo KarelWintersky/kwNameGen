@@ -10,7 +10,17 @@
     width: 25px;
     height: 15px;
     content: '';
-    background: url("flags.gif") no-repeat;
+    background: url("flags.png") no-repeat;
+}
+
+.flag-before-single:before {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: 7%;
+    width: 25px;
+    height: 15px;
+    content: '';
+    background: url("flags.png") no-repeat;
 }
 
 .flag-none:before {
