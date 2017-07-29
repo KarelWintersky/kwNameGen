@@ -52,6 +52,8 @@ $(document).ready(function () {
 
     // bind reset onclick
     $("#actor-result-reset").on('click', function(){
-        $("#result").html('');
+        $("#namegen-result").html('');
+        $("#namegen-history").html('');
+
     });
 });
