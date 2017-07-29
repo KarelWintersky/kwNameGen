@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // function must be declared inside $.ready()
     var initDictionary = function(state) {
         $("#actor-generate-name").prop('disabled', !!(state.dict == ''));
