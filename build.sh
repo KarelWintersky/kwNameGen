@@ -14,6 +14,8 @@ mkdir -p $DESTINATION/assets
 # static files
 echo 'Generating static files'
 
+rm -rf $DESTINATION/*.*
+
 cp ./index.min.html $DESTINATION/index.html
 cp $SOURCEPATH/flags.png                $DESTINATION/assets/flags.png
 cp $SOURCEPATH/jquery-2.2.4.min.js      $DESTINATION/assets/jquery.js

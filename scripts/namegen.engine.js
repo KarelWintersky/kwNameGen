@@ -95,13 +95,12 @@ var engine = {
 };
 
 
-
 function exists(obj)
 {
     return !(typeof obj === 'undefined' || obj === null);
 }
 
-function get_wlh_key( wlh_array, key )
+function wlh_get_key( wlh_array, key )
 {
     let result = null;
     wlh_array.forEach(function(element, index, array) {
@@ -117,8 +116,8 @@ function wlh_get() // set start values based on window.location.hash
 {
     let wlh = window.location.hash.substring(1);
     let splitted_wlh = wlh.split('&');
-    let dict = get_wlh_key(splitted_wlh, 'dict') || '';
-    let gender = get_wlh_key(splitted_wlh, 'gender') || 'male';
+    let dict = wlh_get_key(splitted_wlh, 'dict') || '';
+    let gender = wlh_get_key(splitted_wlh, 'gender') || 'male';
 
     return {
         dict    : dict,
@@ -129,13 +128,18 @@ function wlh_get() // set start values based on window.location.hash
 function wlh_set(state)
 {
     let wlh_str = '';
-    if (state.dict !== '') wlh_str += 'dict=' + state.dict + '&';
-    wlh_str += 'gender=' + state.gender;
-    window.location.hash = wlh_str;
+    if (state.dict !== '') {
+        wlh_str += 'dict=' + state.dict + '&';
+        wlh_str += 'gender=' + state.gender;
+        window.location.hash = wlh_str;
+    } else {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
 }
 
 function wlh_reset()
 {
+    history.pushState("", document.title, window.location.pathname + window.location.search); // clear hash
     return {
         dict    : '',
         gender  : 'male'

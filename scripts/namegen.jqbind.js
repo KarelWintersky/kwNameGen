@@ -1,35 +1,70 @@
 $(document).ready(function () {
+
+    var initDictionary = function(state) {
+        $("#actor-generate-name").prop('disabled', !!(state.dict == ''));
+        if (state.dict == '') {
+            return false;
+        }
+        dictionary = null;
+        dictionary = eval(state.dict);
+        current_country_iso_code
+            = exists( dictionary.config.iso_code)
+            ? dictionary.config.iso_code
+            : 'none';
+        if (engine_config.show_hints && exists( dictionary.config.hint )) {
+            $('#namegen-hint').html( dictionary.config.hint).show();
+        } else {
+            $('#namegen-hint').html('').hide();
+        }
+    };
+
     var wlh_state = {
         dict : '',
         gender : ''
     };
-    wlh_state = wlh_get();
-
     var dictionary;                 // current dictionary INSTANCE
     var current_country_iso_code;   // ISO code
 
     // generate Languages Optionslist
     languages = engine.sortAssocObject(languages, function(a, b) { return (a[1] < b[1] ? -1 : (a[1] > b[1] ? 1 : 0)); });
     Object.keys(languages).map(function(objKey, index) {
+        // let str = '<option value="' + objKey + '">' + languages[objKey] + '</option>';
+        // console.log(str);
         $("#select-language").append( $('<option>', {
             value : objKey,
             text  : languages[objKey],
         }) );
     });
 
-    // set language option to actual WLH.dict
-    if (wlh_state.dict !== '') {
-        $("#select-language").val(wlh_state.dict).trigger("change");
-        dictionary = null;
-        dictionary = eval(wlh_state.dict);
-    }
+    // onLoad
+    wlh_state = wlh_get();
 
     // set gender option to actual WLH.gender
     if (wlh_state.gender !== '') {
-        $("#select-gender").val(wlh_state.gender).trigger("change"); //@todo: а в чем различие с ".prop('selected', true)" ? (триггер вызывает еще и событие)
+        $("#select-gender").val(wlh_state.gender).prop("selected", true);
+    }
+
+    // set dictionary option to actual WLH.dict
+    if (wlh_state.dict !== '') {
+        $("#select-language").val(wlh_state.dict).prop("selected", true);
+        initDictionary(wlh_state);
     }
 
     // ============ BIND HANDLERS ============
+    // SELECT LANGUAGE
+    $("#select-language").on('change', function(){
+        let dict = $(this).val();
+
+        if (dict == "none") {
+            // перешли на "выбери язык"
+            wlh_state.dict = '';
+        } else {
+            wlh_state.dict = dict;
+        }
+
+        wlh_set(wlh_state);
+        initDictionary(wlh_state);
+    });
 
     // SELECT GENDER handler
     $("#select-gender").on('change', function(){
@@ -37,41 +72,7 @@ $(document).ready(function () {
         wlh_set(wlh_state);
     });
 
-    // SELECT LANGUAGE
-    $("#select-language").on('change', function(){
-        let state_generate_name_actor;
-        let dict = $(this).val();
-        let text = $(this).find('option:selected').text();
 
-        if (dict == "none") {
-            state_generate_name_actor = true;
-            wlh_state.dict = '';
-        } else {
-            state_generate_name_actor = false;
-            wlh_state.dict = dict;
-        }
-        $("#actor-generate-name").prop('disabled', state_generate_name_actor);
-
-        dictionary = null;
-
-        if (dict == 'none') return false; // prevent set unexistent dictionary
-
-        dictionary = eval(dict);
-
-        // покажем хинт, установим код страны
-        current_country_iso_code
-            = exists( dictionary.config.iso_code)
-            ? dictionary.config.iso_code
-            : 'none';
-
-        if (engine_config.show_hints && exists( dictionary.config.hint )) {
-            $('#namegen-hint').html( dictionary.config.hint).show();
-        } else {
-            $('#namegen-hint').html('').hide();
-        }
-
-        wlh_set(wlh_state);
-    });
 
     // BUTTON 'generate name' onClick
     $("#actor-generate-name").on('click', function(){
@@ -84,10 +85,10 @@ $(document).ready(function () {
 
     // BUTTON 'reset' onClick
     $("#actor-result-reset").on('click', function(){
+        wlh_state = wlh_reset();
+
         $("#namegen-result").html('&nbsp;');
         $("#namegen-history").html('');
-        wlh_state = wlh_reset();
         $("#select-language").val('none').trigger("change");
-        history.pushState("", document.title, window.location.pathname + window.location.search); // clear hash
     });
 });
