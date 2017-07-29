@@ -331,10 +331,12 @@ var romanian = {
         // генерируем имя
         result = engine.getRndNameParts( src_name );
         original    += result[0] + ' ';
+        translated  += result[1] + ' ';
 
         // генерируем фамилию
         result = engine.getRndNameParts( src_lastname );
         original    += result[0];
+        translated  += result[1] + ' ';
 
         return {
             'original'  :   original,
@@ -343,6 +345,6 @@ var romanian = {
     },
 
     printName: function(string) {
-        return out = string.original;
+        return out = string.translated + ' ( ' + string.original + ' ) '
     }
 };

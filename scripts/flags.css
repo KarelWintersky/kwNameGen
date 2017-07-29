@@ -1,10 +1,11 @@
 /*!
  * Generated with CSS Flag Sprite generator (https://www.flag-sprites.com/)
  * + little fixes by Karel Wintersky
- */
+*/
 
 .flag:before {
     display: inline-block;
+    margin-right: 5px;
     vertical-align: -5%;
     width: 25px;
     height: 15px;
@@ -12,6 +13,9 @@
     background: url("flags.png") no-repeat;
 }
 
+.flag-none:before {
+    background-position: -375px -225px; /* right bottom area - none */
+}
 
 .flag-sc:before {
     background-position: 0 -180px;
