@@ -94,19 +94,7 @@ var engine = {
     },
 };
 
-function $$(id)
-{
-    if (typeof id == 'string') {
-        return document.getElementById(id);
-    }
-    return id;
-}
 
-function addOnclickListener(target, action)
-{
-    var el = document.getElementById(target);
-    el[window.addEventListener ? 'addEventListener' : 'attachEvent']( window.addEventListener ? 'click' : 'onclick', action, false);
-}
 
 function exists(obj)
 {

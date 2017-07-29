@@ -1,0 +1,19 @@
+#namegen-hint {
+    display: none;;
+}
+#namegen-history {
+    border: 0;
+    overflow-y: auto;
+    max-height: 500px;
+    line-height: 175%;
+}
+.nbsp-1rem {
+    width: 1rem;
+    display: inline-block;
+    content: ' ';
+}
+.nbsp-2rem {
+    width: 2rem;
+    display: inline-block;
+    content: ' ';
+}

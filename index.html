@@ -12,110 +12,56 @@
     <meta name="robots" content="none" />
 
     <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="scripts/engine.js"></script>
-    <script type="text/javascript" src="scripts/dictionaries.min.js"></script>
 
-    <script type="text/javascript" id="jq-binds">
-        $(document).ready(function () {
-            var dictionary;                 // current dictionary
-            var current_country_iso_code;   // ISO code
+    <!-- Dictionaries -->
+    <script type="text/javascript" src="dictionaries/__index.js"></script>
+    <script type="text/javascript" src="dictionaries/bulgarian.js"></script>
+    <script type="text/javascript" src="dictionaries/czech.js"></script>
+    <script type="text/javascript" src="dictionaries/danish.js"></script>
+    <script type="text/javascript" src="dictionaries/dutch.js"></script>
+    <script type="text/javascript" src="dictionaries/english_irish.js"></script>
+    <script type="text/javascript" src="dictionaries/english.js"></script>
+    <script type="text/javascript" src="dictionaries/english_scottish.js"></script>
+    <script type="text/javascript" src="dictionaries/finnish.js"></script>
+    <script type="text/javascript" src="dictionaries/french.js"></script>
+    <script type="text/javascript" src="dictionaries/german.js"></script>
+    <script type="text/javascript" src="dictionaries/hungarian.js"></script>
+    <script type="text/javascript" src="dictionaries/icelandic.js"></script>
+    <script type="text/javascript" src="dictionaries/italian.js"></script>
+    <script type="text/javascript" src="dictionaries/norwegian.js"></script>
+    <script type="text/javascript" src="dictionaries/polish.js"></script>
+    <script type="text/javascript" src="dictionaries/portugalian_brasilian.js"></script>
+    <script type="text/javascript" src="dictionaries/portugalian.js"></script>
+    <script type="text/javascript" src="dictionaries/romanian.js"></script>
+    <script type="text/javascript" src="dictionaries/spain.js"></script>
+    <script type="text/javascript" src="dictionaries/swedish.js"></script>
 
-            // gender handler
-            var gender = "male";
-            $("#select-gender").on('change', function(){
-                gender = $(this).val();
-            });
+    <script type="text/javascript" src="scripts/namegen.engine.js"></script>
+    <script type="text/javascript" src="scripts/namegen.jqbind.js" id="jq-binds"></script>
 
-            // generate Languages Optionslist
-            languages = engine.sortAssocObject(languages, function(a, b) { return (a[1] < b[1] ? -1 : (a[1] > b[1] ? 1 : 0)); });
-            Object.keys(languages).map(function(objKey, index) {
-                $("#select-language").append( $('<option>', {
-                    value : objKey,
-                    text  : languages[objKey],
-                }) );
-            });
-
-            // bind languages selector
-            $("#select-language").on('change', function(){
-                let dict = $(this).val();
-                let text = $(this).find('option:selected').text();
-                let actor_generate_name__state = (dict == "null") ? true : false;
-                $("#actor-generate-name").prop('disabled', actor_generate_name__state);
-                $("#dictionary").html( !actor_generate_name__state ? text : '&nbsp;' );
-
-                dictionary = null;
-                dictionary = eval(dict);
-
-                // покажем хинт, установим код страны
-                current_country_iso_code
-                        = exists( dictionary.config.iso_code)
-                        ? dictionary.config.iso_code
-                        : 'none';
-
-                if (engine_config.show_hints && exists( dictionary.config.hint )) {
-                    $('#display-dictionary-hint').html( dictionary.config.hint).show();
-                } else {
-                    $('#display-dictionary-hint').html('').hide();
-                }
-            });
-
-            // bind 'generate name' onclick
-            $("#actor-generate-name").on('click', function(){
-                let name = dictionary.getRandomName( gender );
-                let output = dictionary.printName( name );
-
-                $("#result").prepend('<span class="flag flag-' + current_country_iso_code + '">' + output + '</span><br>');
-            });
-
-            // bind reset onclick
-            $("#actor-result-reset").on('click', function(){
-                $("#result").html('');
-            });
-        });
-    </script>
-
-    <link rel="stylesheet" href="scripts/flags.css">
-    <style type="text/css">
-        #result {
-            border: 0;
-            overflow-y: auto;
-            max-height: 500px;
-            line-height: 150%;
-        }
-        .dictionary-hint {
-            margin-top: 0.5em;
-            display: none;
-            border: none;
-        }
-        .nbsp-1rem {
-            width: 1rem;
-            display: inline-block;
-            content: ' ';
-        }
-        .nbsp-2rem {
-            width: 2rem;
-            display: inline-block;
-            content: ' ';
-        }
-    </style>
+    <link rel="stylesheet" href="scripts/namegen.css">
+    <link rel="stylesheet" href="scripts/namegen.flags.css">
 </head>
 <body>
     Language:   <select id="select-language"><option value="null"> >> Выбери язык << </option></select>
                 <span class="nbsp-2rem"></span>
-    Gender:     <select id="select-gender"><option value="male">Male</option><option value="female">Female</option></select>
+    Gender:     <select id="select-gender"><option value="male">♂ Male</option><option value="female">♀ Female</option></select>
                 <span class="nbsp-2rem"></span>
 
     <button id="actor-generate-name" disabled>Generate name</button>
     <span class="nbsp-1rem"></span>
-
     <button id="actor-result-reset">Reset</button>
+    <hr />
 
-    <fieldset class="dictionary-hint" id="display-dictionary-hint"></fieldset>
+    <div id="namegen-result">&nbsp;</div>
 
-    <fieldset>
-        <legend id="dictionary">&nbsp;</legend>
-        <div id="result"></div>
+    <hr />
+    <fieldset id="fieldset-namegen-history">
+        <legend>History</legend>
+        <div id="namegen-history"></div>
     </fieldset>
+
+    <fieldset id="namegen-hint"></fieldset>
 
 </body>
 </html>
