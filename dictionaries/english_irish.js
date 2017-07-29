@@ -210,7 +210,7 @@ var english_irish = {
         "Ursula | Урсула",
         "Victoria | Виктория",
     ],
-    cognomen: [
+    lastname: [
         "Bannon | Бэннон",
         "Barry | Барри",
         "Berrigan | Берриган",
@@ -387,14 +387,14 @@ var english_irish = {
         "Walsh | Уолш",
     ],
 
-
     getRandomName: function (gender) {
-        let result = '';
         let rnd = 0;
-        let original = '';
-        let translated = '';
+        let result = [];
+        let original = [];
+        let translated = [];
 
-        var name_source;
+        let src_name;
+        let src_lastname;
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
@@ -403,22 +403,21 @@ var english_irish = {
         if (gender == "female") {
             name_source = this.name_f;
         }
+        src_lastname = this.lastname;
 
         // генерируем имя
-        result = engine.getRndNameParts(name_source);
-
-        original += result[0] + ' ';
-        translated += result[1] + ' ';
+        result = engine.getRndNameParts(src_name);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         // генерируем фамилию
-        result = engine.getRndNameParts(this.cognomen);
-
-        original += result[0];
-        translated += result[1];
+        result = engine.getRndNameParts(src_lastname);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         return {
-            'original': original,
-            'translated': translated
+            'original'  : original.join(' '),
+            'translated': translated.join(' ')
         };
     },
 

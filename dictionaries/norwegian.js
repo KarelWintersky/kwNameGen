@@ -737,12 +737,13 @@ var norwegian = {
 
 
     getRandomName: function (gender) {
-        let result = '';
         let rnd = 0;
-        let original = '';
-        let translated = '';
+        let result = [];
+        let original = [];
+        let translated = [];
 
-        var src_name;
+        let src_name;
+        let src_lastname;
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
@@ -751,22 +752,21 @@ var norwegian = {
         if (gender == "female") {
             src_name = this.name_f;
         }
+        src_lastname = this.lastname;
 
         // генерируем имя
         result = engine.getRndNameParts(src_name);
-
-        original += result[0] + ' ';
-        translated += result[1] + ' ';
+        original.push( result[0] );
+        translated.push( result[1] );
 
         // генерируем фамилию
-        result = engine.getRndNameParts(this.lastname);
-
-        original += result[0];
-        translated += result[1];
+        result = engine.getRndNameParts(src_lastname);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         return {
-            'original': original,
-            'translated': translated
+            'original'  : original.join(' '),
+            'translated': translated.join(' ')
         };
     },
 

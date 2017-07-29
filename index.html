@@ -11,16 +11,11 @@
     <meta name="resource-type" content="document" />
     <meta name="robots" content="none" />
 
-    <link rel="stylesheet" href="scripts/flags.css">
-
     <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="scripts/engine.js"></script>
     <script type="text/javascript" src="scripts/dictionaries.min.js"></script>
 
     <script type="text/javascript" id="jq-binds">
-        var engine_config = {
-            show_hints : true,
-        };
         $(document).ready(function () {
             var dictionary;                 // current dictionary
             var current_country_iso_code;   // ISO code
@@ -64,7 +59,7 @@
                 }
             });
 
-            // bindings
+            // bind 'generate name' onclick
             $("#actor-generate-name").on('click', function(){
                 let name = dictionary.getRandomName( gender );
                 let output = dictionary.printName( name );
@@ -72,11 +67,14 @@
                 $("#result").prepend('<span class="flag flag-' + current_country_iso_code + '">' + output + '</span><br>');
             });
 
+            // bind reset onclick
             $("#actor-result-reset").on('click', function(){
                 $("#result").html('');
             });
         });
     </script>
+
+    <link rel="stylesheet" href="scripts/flags.css">
     <style type="text/css">
         #result {
             border: 0;

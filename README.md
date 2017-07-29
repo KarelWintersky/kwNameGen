@@ -7,3 +7,13 @@ npm install uglifycss -g
 npm install uglify-es -g
 ```
 
+# Make production version
+
+```
+/bin/bash ./build.sh
+```
+
+или
+```
+./build.cmd
+```

@@ -1,4 +1,12 @@
 /**
+ * Конфигурационные (отладочные) переменные движка
+ * @type {{show_hints: boolean}}
+ */
+var engine_config = {
+    show_hints : true,
+};
+
+/**
  * Класс основного движка
  * @type {{getRndNameParts: Function, sortAssocObject: Function, }}
  */

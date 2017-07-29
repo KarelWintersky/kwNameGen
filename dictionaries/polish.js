@@ -696,37 +696,37 @@ var polish  = {
 
 
     getRandomName: function (gender) {
-        let result = '';
         let rnd = 0;
-        let original = '';
-        let translated = '';
+        let result = [];
+        let original = [];
+        let translated = [];
 
-        var src_name;
-        var src_cognomen;
+        let src_name;
+        let src_lastname;
 
         // установим сообразно гендеру
         if (gender == "male") {
             src_name = this.name_m;
-            src_cognomen = this.lastname_m;
+            src_lastname = this.lastname_m;
         }
         if (gender == "female") {
             src_name = this.name_f;
-            src_cognomen = this.lastname_f;
+            src_lastname = this.lastname_f;
         }
 
         // генерируем имя
-        result = engine.getRndNameParts( src_name );
-        original    += result[0] + ' ';
-        translated += result[1] + ' ';
+        result = engine.getRndNameParts(src_name);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         // генерируем фамилию
-        result = engine.getRndNameParts( src_cognomen );
-        original    += result[0];
-        translated += result[1] + ' ';
+        result = engine.getRndNameParts(src_lastname);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         return {
-            'original'  :   original,
-            'translated':   translated
+            'original'  : original.join(' '),
+            'translated': translated.join(' ')
         };
     },
 

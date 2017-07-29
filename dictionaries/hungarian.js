@@ -287,15 +287,14 @@ var hungarian = {
         "Vörös | Вёрёш",
     ],
 
-
     getRandomName: function (gender) {
-        let result = '';
         let rnd = 0;
+        let result = [];
         let original = [];
         let translated = [];
 
-        var src_name;
-        var src_lastname;
+        let src_name;
+        let src_lastname;
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
@@ -308,13 +307,11 @@ var hungarian = {
 
         // генерируем фамилию
         result = engine.getRndNameParts(src_lastname);
-
         original.push( result[0] );
         translated.push( result[1] );
 
         // генерируем имя
         result = engine.getRndNameParts(src_name);
-
         original.push( result[0] );
         translated.push( result[1] );
 

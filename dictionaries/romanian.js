@@ -311,13 +311,12 @@ var romanian = {
 
     getRandomName : function(gender){
         let rnd = 0;
+        let result = [];
+        let original = [];
+        let translated = [];
 
-        let result = '';
-        let original = '';
-        let translated = '';
-
-        var src_name;
-        var src_lastname;
+        let src_name;
+        let src_lastname;
 
         // установим сообразно гендеру
         if (gender == "male") {
@@ -329,18 +328,18 @@ var romanian = {
         src_lastname = this.lastname;
 
         // генерируем имя
-        result = engine.getRndNameParts( src_name );
-        original    += result[0] + ' ';
-        translated  += result[1] + ' ';
+        result = engine.getRndNameParts(src_name);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         // генерируем фамилию
-        result = engine.getRndNameParts( src_lastname );
-        original    += result[0];
-        translated  += result[1] + ' ';
+        result = engine.getRndNameParts(src_lastname);
+        original.push( result[0] );
+        translated.push( result[1] );
 
         return {
-            'original'  :   original,
-            'translated':   translated
+            'original'  : original.join(' '),
+            'translated': translated.join(' ')
         };
     },
 

@@ -17,7 +17,7 @@ echo ----
 echo Compressing dictionary
 echo ----
 
-uglifyjs ./scripts/dictionaries.js -o  ./scripts/dictionaries.min.js
+uglifyjs ./scripts/dictionaries.js -o ./scripts/dictionaries.min.js > nul
 
 echo ----
 echo Dictionary compressed
