@@ -398,10 +398,10 @@ var english_irish = {
 
         // установим namearray сообразно гендеру
         if (gender == "male") {
-            name_source = this.name_m;
+            src_name = this.name_m;
         }
         if (gender == "female") {
-            name_source = this.name_f;
+            src_name = this.name_f;
         }
         src_lastname = this.lastname;
 
