@@ -100,3 +100,44 @@ function exists(obj)
 {
     return !(typeof obj === 'undefined' || obj === null);
 }
+
+function get_wlh_key( wlh_array, key )
+{
+    let result = null;
+    wlh_array.forEach(function(element, index, array) {
+        let pair = element.split('=');
+        if (pair[0] == key) {
+            result = pair[1];
+        }
+    });
+    return result;
+}
+
+function wlh_get() // set start values based on window.location.hash
+{
+    let wlh = window.location.hash.substring(1);
+    let splitted_wlh = wlh.split('&');
+    let dict = get_wlh_key(splitted_wlh, 'dict') || '';
+    let gender = get_wlh_key(splitted_wlh, 'gender') || 'male';
+
+    return {
+        dict    : dict,
+        gender  : gender
+    }
+}
+
+function wlh_set(state)
+{
+    let wlh_str = '';
+    if (state.dict !== '') wlh_str += 'dict=' + state.dict + '&';
+    wlh_str += 'gender=' + state.gender;
+    window.location.hash = wlh_str;
+}
+
+function wlh_reset()
+{
+    return {
+        dict    : '',
+        gender  : 'male'
+    }
+}
