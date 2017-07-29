@@ -28,8 +28,9 @@ echo 'Generating javascript files'
 
 echo ; > $DESTINATION/temp.js
 cat $DICTPATH/*.js >> $DESTINATION/temp.js
-cat $SOURCEPATH/namegen.engine.js >> $DESTINATION/temp.js
-cat $SOURCEPATH/namegen.jqbind.js >> $DESTINATION/temp.js
+cat $SOURCEPATH/namegen.engine.js   >> $DESTINATION/temp.js
+cat $SOURCEPATH/namegen.wlh.js      >> $DESTINATION/temp.js
+cat $SOURCEPATH/namegen.jqbind.js   >> $DESTINATION/temp.js
 
 echo 'Compressing javascript files'
 
