@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>E.R.L.S. :: Names generator</title>
-    <meta name="author" lang="ru" content="Karel Wintersky" />
+    <meta name="author" lang="ru" content="Karel Wintersky"/>
     <meta name="copyright" content="Karel Wintersky">
-    <meta name="description" content="Names generator" />
-    <meta name="document-state" content="Dynamic" />
-    <meta name="generator" content="Handmade" />
-    <meta name="resource-type" content="document" />
-    <meta name="robots" content="none" />
+    <meta name="description" content="Names generator"/>
+    <meta name="document-state" content="Dynamic"/>
+    <meta name="generator" content="Handmade"/>
+    <meta name="resource-type" content="document"/>
+    <meta name="robots" content="none"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
 
@@ -44,24 +46,36 @@
     <link rel="stylesheet" href="scripts/namegen.flags.css">
 </head>
 <body>
-    Language:   <select id="select-language"><option value="none"> &gt;&gt; Выбери язык &lt;&lt; </option></select>
-                <span class="nbsp-2rem"></span>
-    Gender:     <select id="select-gender"><option value="male">♂ Male</option><option value="female">♀ Female</option></select>
-                <span class="nbsp-2rem"></span>
+<div class="form">
+    <label class="ml-1rem">
+        <button id="actor-generate-name" disabled>Generate name</button>
+    </label>
 
-    <button id="actor-generate-name" disabled>Generate name</button>
-    <span class="nbsp-1rem"></span>
-    <button id="actor-result-reset">Clear</button>
-    <hr />
+    <label class="ml-2rem unselectable" for="select-language">Language:</label>
+    <select id="select-language">
+        <option value="none"> &gt;&gt; Выбери язык &lt;&lt; </option>
+    </select>
 
-    <div id="namegen-result">&nbsp;</div>
+    <label class="ml-2rem unselectable" for="select-gender">Gender:</label>
+    <select id="select-gender">
+        <option value="male">♂ Male</option>
+        <option value="female">♀ Female</option>
+    </select>
 
-    <div id="namegen-hint"></div>
-    <hr />
-    <fieldset id="fieldset-namegen-history">
-        <legend>History</legend>
-        <div id="namegen-history"></div>
-    </fieldset>
+    <label class="ml-1rem">
+        <button id="actor-result-reset">Clear</button>
+    </label>
+    <hr/>
+</div>
+
+<div id="namegen-result">&nbsp;</div>
+
+<div id="namegen-hint"></div>
+<hr/>
+<fieldset id="fieldset-namegen-history">
+    <legend>History</legend>
+    <div id="namegen-history"></div>
+</fieldset>
 
 </body>
 </html>

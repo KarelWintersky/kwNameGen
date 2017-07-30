@@ -1,3 +1,38 @@
+button {
+    font-size: x-large;
+    margin: 5px;
+}
+.form label {
+    font-size: x-large;
+}
+.form select {
+    font-size: large;
+}
+
+/* Margins for labels */
+.mr-2rem {
+    padding-right: 2rem;
+}
+.mr-1rem {
+    padding-right: 1rem;
+}
+.ml-2rem {
+    padding-left: 2rem;
+}
+.ml-1rem {
+    padding-left: 1rem;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;    /* iOS Safari */
+    -webkit-user-select: none;      /* Safari */
+    -khtml-user-select: none;       /* Konqueror HTML */
+    -moz-user-select: none;         /* Firefox */
+    -ms-user-select: none;          /* Internet Explorer/Edge */
+    user-select: none;              /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/* Output */
 #namegen-hint {
     display: none;
     font-style: italic;
@@ -12,13 +47,14 @@
     font-size: xx-large;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
-.nbsp-1rem {
-    width: 1rem;
-    display: inline-block;
-    content: ' ';
-}
-.nbsp-2rem {
-    width: 2rem;
-    display: inline-block;
-    content: ' ';
+
+/* mobile */
+@media only screen and (max-device-width: 480px) {
+    .mr-2rem {    }
+    .mr-1rem {    }
+    .ml-2rem {    }
+    .ml-1rem {    }
+    select {
+        max-width: 400px;
+    }
 }

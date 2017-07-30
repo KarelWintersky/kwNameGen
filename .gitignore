@@ -2,6 +2,7 @@
 .DS_Store
 *.swp
 *.tmp
+.config
 
 # A handy place to put stuff that git should ignore:
 /.idea

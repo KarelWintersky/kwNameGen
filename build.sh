@@ -5,7 +5,7 @@
 
 SOURCEPATH='./scripts'
 DICTPATH='./dictionaries'
-DESTINATION='./dest/'
+DESTINATION='./dist/'
 
 #
 echo '---'
