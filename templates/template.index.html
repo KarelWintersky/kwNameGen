@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>E.R.L.S. :: Names generator</title>
+    <meta name="author" lang="ru" content="Karel Wintersky"/>
+    <meta name="copyright" content="Karel Wintersky">
+    <meta name="description" content="Names generator"/>
+    <meta name="document-state" content="Dynamic"/>
+    <meta name="generator" content="Handmade"/>
+    <meta name="resource-type" content="document"/>
+    <meta name="robots" content="none"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+    <script type="text/javascript" src="assets/jquery.js"></script>
+    <script type="text/javascript" src="assets/namegen.js"></script>
+    <link rel="stylesheet" href="assets/namegen.css">
+
+</head>
+<body>
+<div class="form">
+    <label class="ml-1rem">
+        <button id="actor-generate-name" disabled>Generate name</button>
+    </label>
+
+    <label class="ml-2rem unselectable" for="select-language">Language:</label>
+    <select id="select-language">
+        <option value="none"> &gt;&gt; Выбери язык &lt;&lt; </option>
+    </select>
+
+    <label class="ml-2rem unselectable" for="select-gender">Gender:</label>
+    <select id="select-gender">
+        <option value="male">♂ Male</option>
+        <option value="female">♀ Female</option>
+    </select>
+
+    <label class="ml-1rem">
+        <button id="actor-result-reset">Clear</button>
+    </label>
+    <hr/>
+</div>
+
+<div id="namegen-result">&nbsp;</div>
+
+<div id="namegen-hint"></div>
+<hr/>
+<fieldset id="fieldset-namegen-history">
+    <legend>History</legend>
+    <div id="namegen-history"></div>
+</fieldset>
+
+</body>
+</html>

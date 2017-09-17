@@ -7,6 +7,6 @@
 # A handy place to put stuff that git should ignore:
 /.idea
 /.temp
-/.dest
+/.dist
 /node_modules
 todo.txt
